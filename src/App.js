@@ -7,11 +7,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="lb_heading">Leadersboard</h1>
-        <Student name="Laiba Zahid" uni="Hajvery University" score={341} />
+        <Student name="Laiba Zahid" uni="Hajvery University" score={141} />
         <Student name="Zahid Ahmed" uni="NUML" score={357} />
         <Student name="Ahtsiham Shahid" uni="FAST NUCES" score={318} />
         <Student name="Hadia Khan" uni="Punjab University" score={368} />
-        <Student name="Zahra Shahid" uni="PUCIT" score={289} />
+        <Student name="Zahra Shahid" uni="PUCIT" score={89} />
       </div>
     );
   }

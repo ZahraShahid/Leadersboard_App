@@ -6,7 +6,8 @@ class Student extends Component {
     super();
     this.state = {
       score: 0,
-      success: false
+      success: false,
+      failure: false
     };
   }
 
@@ -18,6 +19,8 @@ class Student extends Component {
       () => {
         if (this.state.score >= 350) {
           this.setState({ success: true });
+        } else if (this.state.score <= 150) {
+          this.setState({ failure: true });
         }
       }
     );
@@ -26,6 +29,12 @@ class Student extends Component {
   addScore() {
     this.setState({
       score: this.state.score + 1
+    });
+  }
+
+  subScore() {
+    this.setState({
+      score: this.state.score - 1
     });
   }
 
@@ -38,6 +47,14 @@ class Student extends Component {
       text = "";
     }
 
+    const isFail = this.state.failure;
+    let textf;
+    if (isFail) {
+      textf = <span className="x">failed!</span>;
+    } else {
+      textf = "";
+    }
+
     return (
       <div className="student">
         <div className="left">
@@ -46,9 +63,12 @@ class Student extends Component {
             <button className="add-btn" onClick={() => this.addScore()}>
               +
             </button>
+            <button className="sub-btn" onClick={() => this.subScore()}>
+              -
+            </button>
           </h2>
           <p className="uni_name">
-            {this.props.uni} {text}
+            {this.props.uni} {text} {textf}
           </p>
         </div>
 
